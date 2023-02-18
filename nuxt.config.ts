@@ -1,4 +1,12 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-
-})
+export default {
+  css: [
+    '@/assets/scss/main.scss'
+  ],
+  build: {
+    loaders: {
+      scss: {
+        implementation: require('node-sass')
+      }
+    }
+  }
+}
