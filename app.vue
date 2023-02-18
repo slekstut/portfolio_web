@@ -1,15 +1,14 @@
 <template>
   <div>
     <Nav />
+    <Header />
   </div>
 </template>
 
 <script>
-import Nav from './components/Nav.vue'
 
 export default {
   setup() {
-    components: { Nav }
   }
 }
 </script>

@@ -24,13 +24,12 @@
 @import '@/assets/scss/main.scss';
 
 .nav {
-  padding: 40px 0;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .container {}
 
   &__logo {
     color: $supplementary-color;
@@ -38,7 +37,7 @@
     font-weight: 600;
 
     span:last-child {
-      padding-left: 12px;
+      padding-left: .75rem;
       display: inline-block;
       opacity: 0;
       transform: translateX(-10px);
@@ -91,8 +90,6 @@
         }
       }
     }
-
-
   }
 }
 </style>
