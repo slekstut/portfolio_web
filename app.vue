@@ -2,6 +2,7 @@
   <div>
     <Nav />
     <Header />
+    <About/>
   </div>
 </template>
 

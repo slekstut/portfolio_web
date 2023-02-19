@@ -1,14 +1,14 @@
 <template>
-    <div class="header">
+    <section class="header">
         <div class="container">
             <h1 class="header__title">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer.</p>
             <CTABtn text="see work"/>
         </div>
         <div class="bg-img">
-            <img src="@/assets/img/bg-img.svg" alt="bg-img.svg">
+            <img src="@/assets/img/header_img.png" alt="header_img.png">
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -22,6 +22,7 @@ export default {
 @import '@/assets/scss/main.scss';
 
 .header {
+    position: relative;
     margin-top: 8.81rem;
 
     &__title {
@@ -29,7 +30,7 @@ export default {
         max-width: 62rem;
         font-size: 6rem;
         line-height: 6rem;
-        font-weight: 700;
+        font-weight: 400;
     }
 
     &__subtitle {
@@ -38,6 +39,7 @@ export default {
         margin-top: .75rem;
         font-size: 1.75rem;
         line-height: 2.06rem;
+        text-transform: capitalize;
     }
 
     .btn {
@@ -56,7 +58,20 @@ export default {
         }
 
         span {
-            height: 14px;
+            height: .875rem;
         }
     }
-}</style>
+
+    .bg-img {
+        max-width: 51.25rem;
+        position: relative;
+        margin-top: -10.25rem;
+        margin-left: auto;
+
+        img {
+            height: auto;
+        }
+    }
+}
+
+</style>
