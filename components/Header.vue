@@ -2,7 +2,7 @@
     <section class="header">
         <div class="container">
             <h1 class="header__title">Empowering your vision with code</h1>
-            <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer.</p>
+            <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
             <CTABtn text="see work"/>
         </div>
         <div class="bg-img">
