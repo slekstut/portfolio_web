@@ -14,23 +14,24 @@
 <script lang="ts">
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
+
 export default {
     setup() {
-        const headerText = ref('headerText');
+        const headerText = ref(null);
 
         onMounted(() => {
             gsap.from(headerText.value, {
-                duration: 1,
+                duration: 2,
                 opacity: 0,
-                y: 100,
+                x: -100,
                 ease: 'power2.out',
             });
         });
 
-    return {
-        headerText,
-    };
-}
+        return {
+            headerText,
+        };
+    }
 }
 </script>
 

@@ -59,7 +59,7 @@ export default {
                 gsap.to(text.value, {
                     opacity: 1,
                     y: 0,
-                    duration: 1,
+                    duration: 1.5,
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: text.value,
