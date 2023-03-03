@@ -1,9 +1,9 @@
 <template>
     <section class="section section-about">
-        <div class="container">
-            <h5 class="section__title">about</h5>
+        <div class="container" ref="container">
+            <h5 class="section__title" ref="section__title">about</h5>
             <div class="section__body">
-                <div class="about">
+                <div class="about" ref="about">
                     <div class="about__from">
                         from lithuania
                     </div>
@@ -14,7 +14,7 @@
                         with passion for design & development
                     </div>
                 </div>
-                <div class="skills">
+                <div class="skills" ref="skills">
                     <div class="skills__title">
                         skills and technologies
                     </div>
@@ -25,7 +25,7 @@
                         bem, git
                     </div>
                 </div>
-                <div class="skills happy">
+                <div class="skills happy" ref="happy">
                     <div class="skills__title">
                         happy in...
                     </div>
@@ -41,12 +41,45 @@
     </section>
 </template>
 
-<script>
+<script lang="ts">
+import { onMounted, ref } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 export default {
+    setup() {
+        const section__title = ref(null);
+        const about = ref(null);
+        const skills = ref(null);
+        const happy = ref(null);
 
-}
+        onMounted(() => {
+            const textRefs = [section__title, about, skills, happy]
+            textRefs.forEach((text) => {
+                gsap.to(text.value, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: text.value,
+                        start: 'top 80%',
+                        scrub: true,
+                    },
+                });
+            })
+        });
 
+        return {
+            section__title,
+            about,
+            skills,
+            happy,
+        };
+    },
+};
 </script>
+
 
 <style lang="scss" scoped>
 .section-about {
@@ -55,6 +88,8 @@ export default {
     .about {
         max-width: 30rem;
         width: 100%;
+        opacity: 0;
+        transform: translateY(50%);
 
         &__from,
         &__role-title {
@@ -85,6 +120,8 @@ export default {
         margin-top: 13.375rem;
         margin-left: auto;
         margin-right: auto;
+        opacity: 0;
+        transform: translateY(50%);
 
         &__title {
             max-width: 19.6rem;
@@ -106,6 +143,8 @@ export default {
             margin-top: 0;
             margin-left: auto;
             margin-right: unset;
+            opacity: 0;
+            transform: translateY(50%);
         }
     }
 

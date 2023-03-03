@@ -1,9 +1,9 @@
 <template>
     <section class="header">
-        <div class="container">
+        <div class="container" ref="headerText">
             <h1 class="header__title">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
-            <CTABtn text="see work"/>
+            <CTABtn text="see work" />
         </div>
         <div class="bg-img">
             <img src="@/assets/img/header_img.png" alt="header_img.png">
@@ -11,10 +11,26 @@
     </section>
 </template>
 
-<script>
+<script lang="ts">
+import { onMounted, ref } from 'vue';
+import gsap from 'gsap';
 export default {
     setup() {
-    }
+        const headerText = ref('headerText');
+
+        onMounted(() => {
+            gsap.from(headerText.value, {
+                duration: 1,
+                opacity: 0,
+                y: 100,
+                ease: 'power2.out',
+            });
+        });
+
+    return {
+        headerText,
+    };
+}
 }
 </script>
 
@@ -31,6 +47,7 @@ export default {
         font-size: 6rem;
         line-height: 6rem;
         font-weight: 400;
+        opacity: 1;
     }
 
     &__subtitle {
@@ -48,13 +65,13 @@ export default {
         font-weight: 700;
 
         &:hover {
-                svg {
-                    fill: $primary-color;
+            svg {
+                fill: $primary-color;
 
-                    path {
-                        fill: $primary-color;
-                    }
+                path {
+                    fill: $primary-color;
                 }
+            }
         }
 
         span {
@@ -73,5 +90,4 @@ export default {
         }
     }
 }
-
 </style>
