@@ -3,6 +3,7 @@
     <Nav />
     <Header />
     <About/>
+    <ShowCase />
   </div>
 </template>
 

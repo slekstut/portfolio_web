@@ -1,7 +1,7 @@
 <template>
     <section class="section section-about">
         <div class="container" ref="container">
-            <h5 class="section__title" ref="section__title">about</h5>
+            <h5 class="section__title" ref="sectionTitle">about</h5>
             <div class="section__body">
                 <div class="about" ref="about">
                     <div class="about__from">
@@ -48,13 +48,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 export default {
     setup() {
-        const section__title = ref(null);
+        const sectionTitle = ref(null);
         const about = ref(null);
         const skills = ref(null);
         const happy = ref(null);
 
         onMounted(() => {
-            const textRefs = [section__title, about, skills, happy]
+            const textRefs = [sectionTitle, about, skills, happy]
             textRefs.forEach((text) => {
                 gsap.to(text.value, {
                     opacity: 1,
@@ -71,7 +71,7 @@ export default {
         });
 
         return {
-            section__title,
+            sectionTitle,
             about,
             skills,
             happy,
