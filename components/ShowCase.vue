@@ -28,9 +28,6 @@
                 </div>
             </div>
         </div>
-        <div class="side__img">
-            <img src="@/assets/img/side_img.png" alt="side_img.png">
-        </div>
     </section>
     </div>
 </template>

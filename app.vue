@@ -4,6 +4,7 @@
     <Header />
     <About/>
     <ShowCase />
+    <Contact />
   </div>
 </template>
 
