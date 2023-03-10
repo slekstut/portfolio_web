@@ -5,6 +5,7 @@
     <About/>
     <ShowCase />
     <Contact />
+    <Footer />
   </div>
 </template>
 
