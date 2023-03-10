@@ -25,7 +25,8 @@
                         bem, git
                     </div>
                 </div>
-                <div class="skills happy" ref="happy">
+            </div>
+            <div class="skills happy" ref="happy">
                     <div class="skills__title">
                         happy in...
                     </div>
@@ -33,7 +34,6 @@
                         mobile first code, design slicing, bem naming convention, problem solving process
                     </div>
                 </div>
-            </div>
         </div>
         <div class="side__img">
             <img src="@/assets/img/side_img.png" alt="side_img.png">
@@ -85,6 +85,11 @@ export default {
 .section-about {
     position: relative;
 
+    .section__body {
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .about {
         max-width: 30rem;
         width: 100%;
@@ -118,8 +123,8 @@ export default {
     .skills {
         max-width: 22.5rem;
         margin-top: 13.375rem;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 120px;
+        // margin-right: auto;
         opacity: 0;
         transform: translateY(50%);
 
