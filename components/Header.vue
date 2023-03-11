@@ -1,12 +1,12 @@
 <template>
     <section class="header">
-        <div class="container" ref="headerText">
+        <div class="header__wrapper container" ref="headerText">
             <h1 class="header__title">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
             <CTABtn text="see work" />
         </div>
         <div class="bg-img">
-            <img src="@/assets/img/header_img.png" alt="header_img.png">
+            <img src="@/assets/img/main_background.svg" alt="main_background.svg">
         </div>
     </section>
 </template>
@@ -40,30 +40,43 @@ export default {
 
 .header {
     position: relative;
-    margin-top: 8.81rem;
+    margin-top: 24px;
+
+    &__wrapper {
+        position: relative;
+        z-index: 1;
+    }
 
     &__title {
+        padding-top: 6.81rem;
         width: 100%;
         max-width: 62rem;
         font-size: 6rem;
         line-height: 6rem;
-        font-weight: 400;
+        font-weight: 700;
         opacity: 1;
+        z-index: 1;
+
     }
 
     &__subtitle {
+        position: inherit;
         width: 100%;
         max-width: 33rem;
         margin-top: .75rem;
         font-size: 1.75rem;
         line-height: 2.06rem;
         text-transform: capitalize;
+        z-index: 1;
+
     }
 
     .btn {
         margin-top: 1.5rem;
         font-size: 1rem;
         font-weight: 700;
+        z-index: 1;
+
 
         &:hover {
             svg {
@@ -81,10 +94,13 @@ export default {
     }
 
     .bg-img {
-        max-width: 51.25rem;
-        position: relative;
-        margin-top: -10.25rem;
-        margin-left: auto;
+        // max-width: 51.25rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        // margin-top: -10.25rem;
+        // margin-left: auto;
 
         img {
             height: auto;

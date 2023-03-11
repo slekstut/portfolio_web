@@ -1,8 +1,17 @@
 <template lang="">
     <div>
-        <section class="section section-about">
+        <section class="section section-showcase">
         <div class="" ref="container">
             <h5 class="section__title container" ref="sectionTitle">showcase</h5>
+            <div class="showcase__triangles">
+                <svg width="23" height="136" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.3185 135.183L5.65926 128.347L6.88652e-05 121.512H11.3185H22.6321L16.9729 128.347L11.3185 135.183Z" fill="#FFEB3B"/>
+                    <path d="M11.3185 104.808L5.65926 97.9682L6.88652e-05 91.133H11.3185H22.6321L16.9729 97.9682L11.3185 104.808Z" fill="#FFEB3B"/>
+                    <path d="M11.3185 74.429L5.65926 67.5938L6.88652e-05 60.7585H11.3185H22.6321L16.9729 67.5938L11.3185 74.429Z" fill="#FFEB3B"/>
+                    <path d="M11.3185 44.0498L5.65926 37.2146L6.88652e-05 30.3794L11.3185 30.3794H22.6321L16.9729 37.2146L11.3185 44.0498Z" fill="#FFEB3B"/>
+                    <path d="M11.3185 13.6705L5.65926 6.83534L6.88652e-05 0.000141058L11.3185 0.000141058L22.6321 0.000141058L16.9729 6.83534L11.3185 13.6705Z" fill="#FFEB3B"/>
+                </svg>
+            </div>
             <div class="section__body">
                 <div class="showcase" v-for="(showCase, index) in showCases" :key="index">
                     <div class="showcase__wrapper">
@@ -80,60 +89,71 @@ export default {
 </script>
 
 <style lang="scss">
-.section-about {
-    margin-top: 212px;
-}
-.section__body {
-    margin-top: 64px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.showcase {
-    display: flex;
-    flex: 1 50%;
-    &__wrapper {
-        width: 100%;
-        position: relative;
-    }
+.section-showcase {
+    margin-top: 512px;
+    position: relative;
 
-    &__image {
-        width: 100%;
-    }
-
-    &__header {
-        position: absolute;
-        bottom: 30px;
-        left: 60px;
-    }
-
-    &__link {
-        position: absolute;
-        bottom: 30px;
-        right: 60px;
+    .section__body {
+        margin-top: 64px;
         display: flex;
-        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    &__title {
-        max-width: 580px;
-        font-size: 4rem;
-        line-height: 4rem;
-        font-weight: 700;
+    .showcase {
+        display: flex;
+        flex: 1 50%;
+
+        &__wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        &__image {
+            width: 100%;
+        }
+
+        &__header {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+        }
+
+        &__link {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            display: flex;
+            gap: 16px;
+        }
+
+        &__title {
+            max-width: 580px;
+            font-size: 4rem;
+            line-height: 4rem;
+            font-weight: 700;
+        }
+
+        &__subtitle {
+            margin-top: 4px;
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.75;
+        }
+
+        &__tech {
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.15;
+        }
     }
 
-    &__subtitle {
-        margin-top: 4px;
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.75;
-    }
-
-    &__tech {
-        margin-top: 1rem;
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.15;
+    .showcase__triangles {
+        position: absolute;
+        top: -20%;
+        left: 20%;
+        transform: translate(-20%, 20%);
     }
 }
 </style>

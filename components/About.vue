@@ -1,6 +1,6 @@
 <template>
     <section class="section section-about">
-        <div class="container" ref="container">
+        <div class="section-about__wrapper container" ref="container">
             <h5 class="section__title" ref="sectionTitle">about</h5>
             <div class="section__body">
                 <div class="about" ref="about">
@@ -13,6 +13,16 @@
                     <div class="about__role-subtitle">
                         with passion for design & development
                     </div>
+                </div>
+                <div class="figure-triangle">
+                    <svg width="326" height="360" viewBox="0 0 326 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M-2.20208e-05 74.0707H325.526L162.763 360L-2.20208e-05 74.0707ZM322.387 75.8963H3.09601L162.744 356.349L322.387 75.8963Z"
+                            fill="#F5F5FA" />
+                        <path
+                            d="M162.763 283.188L82.1615 141.594L1.5599 0L162.763 0L323.966 0L243.365 141.594L162.763 283.188Z"
+                            fill="#666666" />
+                    </svg>
                 </div>
                 <div class="skills" ref="skills">
                     <div class="skills__title">
@@ -27,16 +37,16 @@
                 </div>
             </div>
             <div class="skills happy" ref="happy">
-                    <div class="skills__title">
-                        happy in...
-                    </div>
-                    <div class="skills__content">
-                        mobile first code, design slicing, bem naming convention, problem solving process
-                    </div>
+                <div class="skills__title">
+                    happy in...
                 </div>
+                <div class="skills__content">
+                    mobile first code, design slicing, bem naming convention, problem solving process
+                </div>
+            </div>
         </div>
-        <div class="side__img">
-            <img src="@/assets/img/side_img.png" alt="side_img.png">
+        <div class="bg-img">
+            <img src="@/assets/img/about_bg.svg" alt="about_bg.svg">
         </div>
     </section>
 </template>
@@ -83,7 +93,13 @@ export default {
 
 <style lang="scss" scoped>
 .section-about {
+    margin-top: 412px;
     position: relative;
+
+    &__wrapper {
+        position: relative;
+        z-index: 1;
+    }
 
     .section__body {
         display: flex;
@@ -153,10 +169,18 @@ export default {
         }
     }
 
-    .side__img {
+    .figure-triangle {
         position: absolute;
-        top: 7.5rem;
-        left: -6rem;
+        top: 0;
+        left: 75%;
+        transform: translateX(-75%);
+    }
+
+    .bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 }
 </style>
