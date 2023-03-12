@@ -1,7 +1,7 @@
 <template>
     <section class="header">
         <div class="header__wrapper container" ref="headerText">
-            <h1 class="header__title">Empowering your vision with code</h1>
+            <h1 class="header__title" style="color: red;">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
             <CTABtn text="see work" />
         </div>
