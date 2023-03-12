@@ -80,10 +80,10 @@ export default {
 
         &:hover {
             svg {
-                fill: $primary-color;
+                fill: $color-black-500;
 
                 path {
-                    fill: $primary-color;
+                    fill: $color-black-500;
                 }
             }
         }

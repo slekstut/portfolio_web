@@ -1,6 +1,6 @@
 body {
-    background-color: $primary-color;
-    color: $secondary-color;
+    background-color: $color-black-500;
+    color: $color-white-700;
     font-size: $font-size;
     line-height: 1.5;
     font-family: $primary-font;
@@ -8,5 +8,5 @@ body {
 }
 
 a {
-    color: $secondary-color;
+    color: $color-white-700;
 }

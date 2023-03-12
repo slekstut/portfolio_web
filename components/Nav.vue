@@ -32,7 +32,7 @@
   align-items: center;
 
   &__logo {
-    color: $supplementary-color;
+    color: $color-yellow-700;
     font-size: 1rem;
     font-weight: 600;
 
@@ -74,7 +74,7 @@
           left: 0;
           right: 0;
           height: 2px;
-          background-color: $supplementary-color2;
+          background-color: $color-pink-800;
           transform: scaleX(0);
           transform-origin: right;
           transition: transform 0.2s ease-in-out;
@@ -82,7 +82,7 @@
 
         &:hover {
           cursor: pointer;
-          color: $supplementary-color2;
+          color: $color-pink-800;
 
           &:before {
             transform: scaleX(1);

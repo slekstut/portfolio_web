@@ -47,6 +47,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/main.scss';
+
 .footer {
     margin-top: 212px;
     margin-bottom: 36px;
@@ -56,6 +58,20 @@ export default {
     .social {
         display: flex;
         gap: 24px;
+
+        &__link {
+            svg {
+                transition: all .25s ease-in-out;
+            }
+
+            &:hover {
+                svg {
+                    path {
+                        fill: $color-pink-800;
+                    }
+                }
+            }
+        }
     }
 }
 </style>

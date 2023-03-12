@@ -37,8 +37,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $supplementary-color2;
-    color: $secondary-color;
+    background-color: $color-yellow-700;
+    color: $color-white-700;
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -47,13 +47,13 @@ export default {
     transition: all .2s ease-in-out;
 
     &:hover {
-        background-color: $secondary-color;
-        color: $primary-color;
+        background-color: $color-white-700;
+        color: $color-black-500;
 
             svg {
-                fill: $primary-color;
+                fill: $color-black-500;
                 path {
-                    fill: $primary-color;
+                    fill: $color-black-500;
                 }
         }
     }
