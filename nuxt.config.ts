@@ -8,9 +8,5 @@ export default {
         implementation: require('node-sass')
       }
     },
-    distDir: 'dist'
-  },
-  server: {
-    port: 3000
   },
 }
