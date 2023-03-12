@@ -1,9 +1,6 @@
 <template>
-    <button class="btn">
-        {{ text }}
-        <template v-if="icon">
-            <span v-html="icon"></span>
-        </template>
+    <button class="btn hover-text-effect" :data-after="text">
+        <span>{{ text }}</span>
     </button>
 </template>
   
@@ -15,17 +12,17 @@ export default {
             required: true
         },
         icon: {
-      type: String,
-      default: null
-    }
+            type: String,
+            default: null
+        }
     },
     setup(props) {
-    const icon = ref(props.icon)
+        const icon = ref(props.icon)
 
-    return {
-      icon
+        return {
+            icon
+        }
     }
-  }
 }
 </script>   
   
@@ -33,7 +30,7 @@ export default {
 @import '@/assets/scss/main.scss';
 
 .btn {
-    padding: 0.68rem 1.75rem;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,17 +47,27 @@ export default {
         background-color: $color-white-700;
         color: $color-black-500;
 
-            svg {
+        svg {
+            fill: $color-black-500;
+
+            path {
                 fill: $color-black-500;
-                path {
-                    fill: $color-black-500;
-                }
+            }
         }
     }
 
     span {
-        display: flex;
-        margin-left: .5rem;
+        text-align: center;
+    }
+}
+
+button {
+    font-size: 1rem;
+
+    &::after,
+    span {
+        padding: .5em 1.2em;
+        min-width: 80px;
     }
 }
 </style>

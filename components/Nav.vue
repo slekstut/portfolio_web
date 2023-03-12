@@ -8,9 +8,20 @@
         </div>
       </div>
       <ul class="nav__links">
-        <li><nuxt-link>about</nuxt-link></li>
-        <li><nuxt-link>work</nuxt-link></li>
-        <li><nuxt-link>contact</nuxt-link></li>
+        <li>
+          <nuxt-link class="hover-text-effect" data-after="about">
+            <span>about</span>
+          </nuxt-link></li>
+        <li>
+          <nuxt-link class="hover-text-effect" data-after="work">
+            <span>work</span>
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link class="hover-text-effect" data-after="contact">
+            <span>contact</span>
+          </nuxt-link>
+        </li>
       </ul>
     </div>
   </nav>
