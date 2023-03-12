@@ -56,26 +56,29 @@ export default {
             {
                 id: 2,
                 title: 'url shortening api',
-                subtitle: 'design and development',
-                tech: 'vue js, nuxt, scss',
+                subtitle: 'development',
+                tech: 'vue js, scss',
                 image: 'https://i.ibb.co/1R7b3Yb/Rectangle-12-3.png" alt="Rectangle-12-3',
-                url: 'https://example.com/project2'
+                urlGit: 'https://github.com/slekstut/url-shortening-api-master',
+                url: 'https://slekstut.github.io/url-shortening-api-master/'
             },
             {
                 id: 3,
                 title: 'IP address tracker',
-                subtitle: 'design and development',
-                tech: 'vue js, nuxt, scss ',
+                subtitle: 'development',
+                tech: 'vue js, scss ',
                 image: 'https://i.ibb.co/B2F5rh0/Rectangle-12-2.png',
-                url: 'https://example.com/project3'
+                urlGit: 'https://github.com/slekstut/ip-address-tracker',
+                url: 'https://slekstut.github.io/ip-address-tracker/',
             },
             {
                 id: 4,
                 title: 'crud app',
-                subtitle: 'design and development',
-                tech: 'vue js, nuxt, scss ',
+                subtitle: 'development',
+                tech: 'vue js, scss ',
                 image: 'https://i.ibb.co/QDzdd2C/Rectangle-11-3.png',
-                url: 'https://example.com/project3'
+                urlGit: 'https://github.com/slekstut/todo-vue',
+                url: 'https://github.com/slekstut/todo-vue',
             }
         ]);
 

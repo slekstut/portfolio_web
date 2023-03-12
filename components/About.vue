@@ -27,6 +27,15 @@
                 <div class="skills" ref="skills">
                     <div class="skills__title">
                         skills and technologies
+                        <span class="skills__art">
+                            <svg width="149" height="10" viewBox="0 0 149 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M88.08 0H0V9.25922H88.08V0Z" fill="#666666" />
+                                <path d="M109.032 0H99.7729V9.25922H109.032V0Z" fill="#666666" />
+                                <path d="M128.966 0H119.707V9.25922H128.966V0Z" fill="#666666" />
+                                <path d="M148.901 0H139.642V9.25922H148.901V0Z" fill="#666666" />
+                            </svg>
+                        </span>
                     </div>
                     <div class="skills__content">
                         VUE, vuetify, NUXT,
@@ -42,6 +51,20 @@
                 </div>
                 <div class="skills__content">
                     mobile first code, design slicing, bem naming convention, problem solving process
+                </div>
+                <div class="happy__art">
+                    <svg width="23" height="136" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.3136 0L16.9728 6.83522L22.632 13.6704H11.3136H0L5.65922 6.83522L11.3136 0Z"
+                            fill="#666666" />
+                        <path d="M11.3136 30.3744L16.9728 37.2144L22.632 44.0496H11.3136H0L5.65922 37.2144L11.3136 30.3744Z"
+                            fill="#666666" />
+                        <path d="M11.3136 60.7537L16.9728 67.5889L22.632 74.4241H11.3136H0L5.65922 67.5889L11.3136 60.7537Z"
+                            fill="#666666" />
+                        <path d="M11.3136 91.1328L16.9728 97.968L22.632 104.803H11.3136H0L5.65922 97.968L11.3136 91.1328Z"
+                            fill="#666666" />
+                        <path d="M11.3136 121.512L16.9728 128.347L22.632 135.182H11.3136H0L5.65922 128.347L11.3136 121.512Z"
+                            fill="#666666" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -137,12 +160,18 @@ export default {
     }
 
     .skills {
+        position: relative;
         max-width: 22.5rem;
         margin-top: 13.375rem;
         margin-left: 120px;
-        // margin-right: auto;
         opacity: 0;
         transform: translateY(50%);
+
+        &__art {
+            position: absolute;
+            top: -40px;
+            right: 70px;
+        }
 
         &__title {
             max-width: 19.6rem;
@@ -161,11 +190,18 @@ export default {
         }
 
         &.happy {
+            position: relative;
             margin-top: 0;
             margin-left: auto;
             margin-right: unset;
             opacity: 0;
             transform: translateY(50%);
+
+            .happy__art {
+                position: absolute;
+                top: 0;
+                left: -53px;
+            }
         }
     }
 
@@ -182,5 +218,4 @@ export default {
         left: 0;
         right: 0;
     }
-}
-</style>
+}</style>
