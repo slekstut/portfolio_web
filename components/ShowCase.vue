@@ -12,8 +12,8 @@
                     <path d="M11.3185 13.6705L5.65926 6.83534L6.88652e-05 0.000141058L11.3185 0.000141058L22.6321 0.000141058L16.9729 6.83534L11.3185 13.6705Z" fill="#FFEB3B"/>
                 </svg>
             </div>
-            <div class="section__body">
-                <div class="showcase" v-for="(showCase, index) in showCases" :key="index">
+            <div class="section__body" id="trigger__point">
+                <div ref="showCasesRef" class="showcase" v-for="(showCase, index) in showCases" :key="index">
                     <div class="showcase__wrapper">
                         <img class="showcase__image" :src="showCase.image" alt="Project Image">
                         <div class="showcase__header">
@@ -42,9 +42,25 @@
 </template>
 
 <script lang="ts">
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+declare module "gsap/ScrollTrigger";
+declare module "gsap";
+
+interface ShowCase {
+    id: number;
+    title: string;
+    subtitle: string;
+    tech: string;
+    image: string;
+    url?: string;
+    urlGit?: string;
+}
+
 export default {
     setup() {
-        const showCases = ref([
+        const showCases = ref<ShowCase[]>([
             {
                 id: 1,
                 title: 'Personal Portfolio',
@@ -82,9 +98,30 @@ export default {
             }
         ]);
 
+        const showCasesRef = ref<HTMLElement | null>(null)
+        const tl = gsap.timeline();
+
+
+        onMounted(() => {
+            gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
+                gsap.set(showcase, { y: 100, opacity: 0 })
+
+                ScrollTrigger.create({
+                    trigger: showcase,
+                    start: "bottom bottom",
+                    onEnter: () => {
+                        gsap.to(showcase, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: index * 0.25, stagger: 0.25 });
+                    },
+                    onLeaveBack: () => {
+                        gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
+                    },
+                });
+            });
+        })
 
         return {
-            showCases
+            showCases,
+            showCasesRef
         }
     }
 
