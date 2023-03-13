@@ -79,8 +79,8 @@ import { onMounted, ref } from 'vue'
 declare module "gsap/ScrollTrigger";
 declare module "gsap";
 import gsap from 'gsap'
-import  ScrollTrigger  from 'gsap/ScrollTrigger'
-// gsap.registerPlugin(ScrollTrigger)
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
     setup() {
@@ -221,4 +221,5 @@ export default {
         left: 0;
         right: 0;
     }
-}</style>
+}
+</style>

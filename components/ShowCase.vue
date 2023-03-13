@@ -43,12 +43,11 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue'
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-declare module "gsap/ScrollTrigger";
-declare module "gsap";
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-// gsap.registerPlugin(ScrollTrigger);
+declare module "gsap/ScrollTrigger"
+declare module "gsap"
+import gsap from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger);
 
 interface ShowCase {
     id: number;
