@@ -75,10 +75,11 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
 export default {
     setup() {
         const sectionTitle = ref(null);

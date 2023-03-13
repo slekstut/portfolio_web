@@ -44,9 +44,9 @@
 <script lang="ts">
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 declare module "gsap/ScrollTrigger";
 declare module "gsap";
+gsap.registerPlugin(ScrollTrigger);
 
 interface ShowCase {
     id: number;
