@@ -8,13 +8,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/gsap": "^3.0.0",
     "node-sass": "^8.0.0",
     "nuxt": "^3.2.2",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0"
   },
   "dependencies": {
+    "@types/gsap": "^3.0.0",
     "gsap": "^3.11.4",
     "normalize.css": "^8.0.1"
   }
