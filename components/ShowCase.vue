@@ -42,6 +42,7 @@
 </template>
 
 <script lang="ts">
+import { onMounted, ref } from 'vue'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 declare module "gsap/ScrollTrigger";
@@ -121,7 +122,8 @@ export default {
 
         return {
             showCases,
-            showCasesRef
+            showCasesRef,
+            tl
         }
     }
 
