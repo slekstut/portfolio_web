@@ -100,8 +100,6 @@ export default {
         ]);
 
         const showCasesRef = ref<HTMLElement | null>(null)
-        const tl = gsap.timeline();
-
 
         onMounted(() => {
             gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
