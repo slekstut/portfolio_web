@@ -12,14 +12,16 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export default {
     setup() {
         const headerText = ref(null);
 
         onMounted(() => {
-            this.$gsap.from(headerText.value, {
+            gsap.from(headerText.value, {
                 duration: 2,
                 opacity: 0,
                 x: -100,

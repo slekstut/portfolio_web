@@ -100,16 +100,16 @@ export default {
 
         onMounted(() => {
             gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
-                this.$gsap.set(showcase, { y: 100, opacity: 0 })
+                gsap.set(showcase, { y: 100, opacity: 0 })
 
                 ScrollTrigger.create({
                     trigger: showcase,
                     start: "bottom bottom",
                     onEnter: () => {
-                        this.$gsap.to(showcase, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: index * 0.25, stagger: 0.25 });
+                        gsap.to(showcase, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: index * 0.25, stagger: 0.25 });
                     },
                     onLeaveBack: () => {
-                        this.$gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
+                        gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
                     },
                 });
             });

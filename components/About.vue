@@ -76,6 +76,8 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
     setup() {
@@ -87,7 +89,7 @@ export default {
         onMounted(() => {
             const textRefs = [sectionTitle, about, skills, happy]
             textRefs.forEach((text) => {
-                this.$gsap.to(text.value, {
+                gsap.to(text.value, {
                     opacity: 1,
                     y: 0,
                     duration: 1.5,
