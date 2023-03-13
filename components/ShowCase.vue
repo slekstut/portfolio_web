@@ -43,11 +43,6 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue'
-declare module "gsap/ScrollTrigger"
-declare module "gsap"
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger);
 
 interface ShowCase {
     id: number;
@@ -102,17 +97,17 @@ export default {
         const showCasesRef = ref<HTMLElement | null>(null)
 
         onMounted(() => {
-            gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
-                gsap.set(showcase, { y: 100, opacity: 0 })
+            this.$gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
+                this.$gsap.set(showcase, { y: 100, opacity: 0 })
 
                 ScrollTrigger.create({
                     trigger: showcase,
                     start: "bottom bottom",
                     onEnter: () => {
-                        gsap.to(showcase, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: index * 0.25, stagger: 0.25 });
+                        this.$gsap.to(showcase, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: index * 0.25, stagger: 0.25 });
                     },
                     onLeaveBack: () => {
-                        gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
+                        this.$gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
                     },
                 });
             });

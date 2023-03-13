@@ -13,14 +13,13 @@
 
 <script lang="ts">
 import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
 
 export default {
     setup() {
         const headerText = ref(null);
 
         onMounted(() => {
-            gsap.from(headerText.value, {
+            this.$gsap.from(headerText.value, {
                 duration: 2,
                 opacity: 0,
                 x: -100,
