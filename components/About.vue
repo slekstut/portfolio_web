@@ -78,9 +78,9 @@
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// gsap.registerPlugin(ScrollTrigger)
 declare module "gsap/ScrollTrigger";
 declare module "gsap";
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
     setup() {
