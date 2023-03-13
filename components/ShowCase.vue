@@ -46,7 +46,7 @@ import { onMounted, ref } from 'vue'
 declare module "gsap/ScrollTrigger"
 declare module "gsap"
 import gsap from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger);
 
 interface ShowCase {
