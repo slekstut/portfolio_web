@@ -11,16 +11,9 @@ export default {
             type: String,
             required: true
         },
-        icon: {
-            type: String,
-            default: null
-        }
     },
-    setup(props) {
-        const icon = ref(props.icon)
-
+    setup() {
         return {
-            icon
         }
     }
 }

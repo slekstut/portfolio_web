@@ -15,7 +15,8 @@
                     </div>
                 </div>
                 <div class="figure-triangle">
-                    <svg width="326" height="360" viewBox="0 0 326 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg ref="triangleSvg" width="326" height="360" viewBox="0 0 326 360" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M-2.20208e-05 74.0707H325.526L162.763 360L-2.20208e-05 74.0707ZM322.387 75.8963H3.09601L162.744 356.349L322.387 75.8963Z"
                             fill="#F5F5FA" />
@@ -85,6 +86,7 @@ export default {
         const about = ref(null);
         const skills = ref(null);
         const happy = ref(null);
+        const triangleSvg = ref(null)
 
         onMounted(() => {
             const textRefs = [sectionTitle, about, skills, happy]
@@ -99,18 +101,31 @@ export default {
                         start: 'top 80%',
                         scrub: true,
                     },
-                });
+                })
             })
-        });
+            console.log('triangleSvg.value',triangleSvg.value)
+            gsap.to(triangleSvg.value, {
+                rotate: 90,
+                duration: 1,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: triangleSvg.value,
+                    start: "bottom bottom", // Adjust the scroll position when the animation starts (format: "onViewport onElement")
+                    end: `+=${window.innerHeight / 2}`, // Adjust the scroll position when the animation ends
+                    scrub: 1,
+                }
+            })
+        })
 
         return {
             sectionTitle,
             about,
             skills,
             happy,
-        };
-    },
-};
+            triangleSvg
+        }
+    }
+}
 </script>
 
 

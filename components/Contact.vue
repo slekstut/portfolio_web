@@ -5,7 +5,7 @@
                 <h5 class="section__title">contact</h5>
                 <div class="section__body">
                     <div class="contact">
-                        <a href="#" class="contact__title">sarunas.lekstutis@gmail.com</a>
+                        <a href="mailto: sarunas.lekstutis@gmail.com" class="contact__title">sarunas.lekstutis@gmail.com</a>
                         <p class="contact__status">currently freelancing as front end developer</p>
                         <div class="contact__icon">
                             <svg width="149" height="10" viewBox="0 0 149 10" fill="none"

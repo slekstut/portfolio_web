@@ -2,7 +2,7 @@
     <footer>
         <div class="footer container">
             <ul class="social">
-                <li class="social_link linkedin">
+                <li class="social__link linkedin">
                     <nuxt-link to="https://www.linkedin.com/in/sarunas-lekstutis-296854108/" target="_blank">
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -57,6 +57,7 @@ export default {
 
     .social {
         display: flex;
+        align-items: center;
         gap: 24px;
 
         &__link {
