@@ -1,6 +1,6 @@
 <template>
     <section class="section section-about">
-        <div class="section-about__wrapper container" ref="container">
+        <div class="section-about__wrapper container" ref="container" id="about">
             <h5 class="section__title" ref="sectionTitle">about</h5>
             <div class="section__body">
                 <div class="about" ref="about">

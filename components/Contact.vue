@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="section section-contact">
-            <div class="container" ref="container">
+            <div class="container" ref="container" id="contact">
                 <h5 class="section__title">contact</h5>
                 <div class="section__body">
                     <div class="contact">

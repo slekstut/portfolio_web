@@ -1,34 +1,46 @@
 <template>
   <nav>
     <div class="container nav">
-      <div class="nav__logo">
-        <div>
+      <ul class="nav__logo">
+        <a @click.prevent="scrollToSection('header')">
           <span>{ SL }</span>
           <span>Sarunas Lekstutis</span>
-        </div>
-      </div>
+        </a>
+      </ul>
       <ul class="nav__links">
         <li>
-          <nuxt-link class="hover-text-effect" data-after="about">
+          <a @click.prevent="scrollToSection('about')" class="hover-text-effect" data-after="about">
             <span>about</span>
-          </nuxt-link></li>
-        <li>
-          <nuxt-link class="hover-text-effect" data-after="work">
-            <span>work</span>
-          </nuxt-link>
+          </a>
         </li>
         <li>
-          <nuxt-link class="hover-text-effect" data-after="contact">
+          <a @click.prevent="scrollToSection('work')" class="hover-text-effect" data-after="work">
+            <span>work</span>
+          </a>
+        </li>
+        <li>
+          <a @click.prevent="scrollToSection('contact')" class="hover-text-effect" data-after="contact">
             <span>contact</span>
-          </nuxt-link>
+          </a>
         </li>
       </ul>
     </div>
   </nav>
 </template>
 
-<script setup>
+<script lang="ts">
+import { scrollTo } from 'vue-scrollto';
 
+export default {
+  setup() {
+    const scrollToSection = (id: string) => {
+      scrollTo(`#${id}`, 500, { easing: 'linear' });
+    }
+    return {
+      scrollToSection
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -41,11 +53,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2001;
 
-  &__logo {
+  &__logo a{
     color: $color-yellow-700;
     font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
 
     span:last-child {
       padding-left: .75rem;

@@ -1,9 +1,9 @@
 <template>
-    <section class="header">
+    <section class="header" id="header">
         <div class="header__wrapper container" ref="headerText">
             <h1 class="header__title">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
-            <CTABtn text="see work" />
+            <CTABtn text="see work" @click="scrollToWork"/>
         </div>
         <div class="bg-img">
             <img src="@/assets/img/main_background.svg" alt="main_background.svg">
@@ -15,6 +15,7 @@
 import { onMounted, ref } from 'vue'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { scrollTo } from 'vue-scrollto'
 
 export default {
     setup() {
@@ -29,8 +30,13 @@ export default {
             });
         });
 
+        const scrollToWork = () => {
+            scrollTo('#work', 500, { easing: 'linear' });
+        }
+
         return {
             headerText,
+            scrollToWork
         };
     }
 }

@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <section class="section section-showcase">
-        <div class="" ref="container">
+        <div class="" ref="container" id="work">
             <h5 class="section__title container" ref="sectionTitle">showcase</h5>
             <div class="showcase__triangles">
                 <svg width="23" height="136" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
