@@ -103,15 +103,14 @@ export default {
                     },
                 })
             })
-            console.log('triangleSvg.value',triangleSvg.value)
             gsap.to(triangleSvg.value, {
                 rotate: 90,
                 duration: 1,
                 ease: "none",
                 scrollTrigger: {
                     trigger: triangleSvg.value,
-                    start: "bottom bottom", // Adjust the scroll position when the animation starts (format: "onViewport onElement")
-                    end: `+=${window.innerHeight / 2}`, // Adjust the scroll position when the animation ends
+                    start: "bottom bottom", 
+                    end: `+=${window.innerHeight / 2}`, 
                     scrub: 1,
                 }
             })

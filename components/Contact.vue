@@ -8,7 +8,7 @@
                         <a href="mailto: sarunas.lekstutis@gmail.com" class="contact__title">sarunas.lekstutis@gmail.com</a>
                         <p class="contact__status">currently freelancing as front end developer</p>
                         <div class="contact__icon">
-                            <svg width="149" height="10" viewBox="0 0 149 10" fill="none"
+                            <svg ref="contactIcon" width="149" height="10" viewBox="0 0 149 10" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M88.08 0H0V9.25922H88.08V0Z" fill="#666666" />
                                 <path d="M109.032 0H99.7729V9.25922H109.032V0Z" fill="#666666" />
@@ -27,8 +27,32 @@
 </template>
 
 <script lang="ts">
-export default {
+import { onMounted, ref } from 'vue'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
+export default {
+    setup() {
+        const contactIcon = ref<HTMLElement | null>(null)
+        
+        const animateDots = () => {
+            gsap.timeline({ repeat: -1 })
+                .to(contactIcon.value.childNodes[3], { opacity: 0, duration: 0.2 })
+                .to(contactIcon.value.childNodes[2], { opacity: 0, duration: 0.2 })
+                .to(contactIcon.value.childNodes[1], { opacity: 0, duration: 0.2 })
+                .to(contactIcon.value.childNodes[3], { opacity: 1, duration: 0.2 })
+                .to(contactIcon.value.childNodes[2], { opacity: 1, duration: 0.2 })
+                .to(contactIcon.value.childNodes[1], { opacity: 1, duration: 0.2 })
+        }
+        onMounted(() => {
+            animateDots()
+        })
+        return {
+            contactIcon,
+            animateDots,
+        }
+    }
 }
 </script>
 

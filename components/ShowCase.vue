@@ -118,9 +118,9 @@ export default {
 
             const paths = gsap.utils.toArray<SVGPathElement>(
                 showcaseTriangles.value?.querySelectorAll('path')
-            );
+            )
 
-            const duration = paths.length * 0.05;
+            const duration = paths.length * 0.05
 
             paths.forEach((path, index) => {
                 ScrollTrigger.create({
@@ -135,12 +135,10 @@ export default {
                             yoyo: true,
                             duration: duration,
                             delay: index * (duration / paths.length), // Adjust delay based on total paths
-                        });
+                        })
                     },
-                });
-            });
-
-
+                })
+            })
         })
 
         return {
@@ -154,6 +152,7 @@ export default {
 </script>
 
 <style lang="scss">
+ @import '@/assets/scss/main.scss';
 .section-showcase {
     margin-top: 512px;
     position: relative;
@@ -169,13 +168,23 @@ export default {
         display: flex;
         flex: 1 50%;
 
+        &:hover {
+            .showcase__image {
+                transform: scale(1.025);
+            }
+        }
+
         &__wrapper {
             width: 100%;
             position: relative;
+            overflow: hidden;
         }
 
         &__image {
+            position: relative;
             width: 100%;
+            transition: transform .3s ease-in-out;
+
         }
 
         &__header {
@@ -190,6 +199,19 @@ export default {
             right: 60px;
             display: flex;
             gap: 16px;
+
+            &--url {
+                svg {
+                    transition: all .3s ease-in-out;
+                }
+                &:hover {
+                    svg {
+                        path {
+                            fill: $color-pink-800;
+                        }
+                    }
+                }
+            }
         }
 
         &__title {
