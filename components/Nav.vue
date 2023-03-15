@@ -36,8 +36,9 @@ export default {
     const scrollToSection = (id: string) => {
       scrollTo(`#${id}`, 500, { easing: 'linear' });
     }
+   
     return {
-      scrollToSection
+      scrollToSection,
     }
   }
 };
