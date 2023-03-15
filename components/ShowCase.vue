@@ -4,7 +4,7 @@
         <div class="" ref="container" id="work">
             <h5 class="section__title container" ref="sectionTitle">showcase</h5>
             <div class="showcase__triangles">
-                <svg width="23" height="136" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg ref="showcaseTriangles" width="23" height="186" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.3185 135.183L5.65926 128.347L6.88652e-05 121.512H11.3185H22.6321L16.9729 128.347L11.3185 135.183Z" fill="#FFEB3B"/>
                     <path d="M11.3185 104.808L5.65926 97.9682L6.88652e-05 91.133H11.3185H22.6321L16.9729 97.9682L11.3185 104.808Z" fill="#FFEB3B"/>
                     <path d="M11.3185 74.429L5.65926 67.5938L6.88652e-05 60.7585H11.3185H22.6321L16.9729 67.5938L11.3185 74.429Z" fill="#FFEB3B"/>
@@ -45,6 +45,7 @@
 import { onMounted, ref } from 'vue'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 
 interface ShowCase {
     id: number;
@@ -97,6 +98,7 @@ export default {
         ]);
 
         const showCasesRef = ref<HTMLElement | null>(null)
+        const showcaseTriangles = ref<HTMLElement | null>(null)
 
         onMounted(() => {
             gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
@@ -111,13 +113,40 @@ export default {
                     onLeaveBack: () => {
                         gsap.to(showcase, { y: 100, opacity: 0, duration: 0.5, ease: "power3.in", delay: index * 0.25, stagger: 0.25 });
                     },
+                })
+            })
+
+            const paths = gsap.utils.toArray<SVGPathElement>(
+                showcaseTriangles.value?.querySelectorAll('path')
+            );
+
+            const duration = paths.length * 0.05;
+
+            paths.forEach((path, index) => {
+                ScrollTrigger.create({
+                    trigger: showcaseTriangles.value,
+                    start: 'bottom bottom',
+                    end: 'bottom top+=100%',
+                    toggleActions: 'restart pause reverse pause',
+                    onEnter: () => {
+                        gsap.to(path, {
+                            y: '-=10',
+                            repeat: -1,
+                            yoyo: true,
+                            duration: duration,
+                            delay: index * (duration / paths.length), // Adjust delay based on total paths
+                        });
+                    },
                 });
             });
+
+
         })
 
         return {
             showCases,
             showCasesRef,
+            showcaseTriangles,
         }
     }
 

@@ -4,7 +4,7 @@ export default {
   ],
   plugins: [
     { src: "~/plugins/gsap.js", mode: "client" },
-    { src: "~/plugins/smooth-scroll.js", mode: "client" }
+    { src: "~/plugins/smooth-scroll.js", mode: "client" },
   ],
   build: {
     loaders: {

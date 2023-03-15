@@ -297,8 +297,9 @@ import { scrollTo } from 'vue-scrollto'
 
 export default {
     setup() {
-        const headerText = ref(null)
-        const iconPlus = ref(null)
+        const headerText = ref<HTMLElement | null>(null)
+        const iconPlus = ref<HTMLElement | null>(null)
+        
         const scrollToWork = () => {
             scrollTo('#work', 500, { easing: 'linear' });
         }
