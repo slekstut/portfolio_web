@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import scrollTo from 'vue-scrollto';
+import {scrollTo} from 'vue-scrollto';
 
 export default {
   setup() {
