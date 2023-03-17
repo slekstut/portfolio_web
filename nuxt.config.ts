@@ -13,7 +13,7 @@ export default {
       }
     },
   },
-  modules: [
-    'vue-scrollto/nuxt',
-  ]
+  // modules: [
+  //   'vue-scrollto/nuxt',
+  // ]
 }
