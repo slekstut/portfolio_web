@@ -293,7 +293,7 @@
 import { onMounted, ref } from 'vue'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { scrollTo } from 'vue-scrollto'
+import scrollTo from 'vue-scrollto'
 
 export default {
     setup() {
