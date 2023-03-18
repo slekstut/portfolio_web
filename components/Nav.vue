@@ -2,24 +2,24 @@
   <nav>
     <div class="container nav">
       <ul class="nav__logo">
-        <a @click.prevent="scrollToSection('header')">
+        <a href="#header">
           <span>{ SL }</span>
           <span>Sarunas Lekstutis</span>
         </a>
       </ul>
       <ul class="nav__links">
         <li>
-          <a @click.prevent="scrollToSection('about')" class="hover-text-effect" data-after="about">
+          <a href="#about" class="hover-text-effect" data-after="about">
             <span>about</span>
           </a>
         </li>
         <li>
-          <a @click.prevent="scrollToSection('work')" class="hover-text-effect" data-after="work">
+          <a href="#work" class="hover-text-effect" data-after="work">
             <span>work</span>
           </a>
         </li>
         <li>
-          <a @click.prevent="scrollToSection('contact')" class="hover-text-effect" data-after="contact">
+          <a href="#contact" class="hover-text-effect" data-after="contact">
             <span>contact</span>
           </a>
         </li>
@@ -29,16 +29,10 @@
 </template>
 
 <script lang="ts">
-import scrollTo from 'vue-scrollto';
-
 export default {
   setup() {
-    const scrollToSection = (id: string) => {
-      scrollTo(`#${id}`, 500, { easing: 'linear' });
-    }
    
     return {
-      scrollToSection,
     }
   }
 };

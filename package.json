@@ -16,7 +16,6 @@
     "@types/gsap": "^3.0.0",
     "gsap": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "nuxt": "^3.2.2",
-    "vue-scrollto": "^2.20.0"
+    "nuxt": "^3.2.2"
   }
 }

@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <section class="section section-showcase">
-        <div class="" ref="container" id="work">
+        <div class="" ref="container">
             <h5 class="section__title container" ref="sectionTitle">showcase</h5>
             <div class="showcase__triangles">
                 <svg ref="showcaseTriangles" width="23" height="186" viewBox="0 0 23 136" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
                     <path d="M11.3185 13.6705L5.65926 6.83534L6.88652e-05 0.000141058L11.3185 0.000141058L22.6321 0.000141058L16.9729 6.83534L11.3185 13.6705Z" fill="#FFEB3B"/>
                 </svg>
             </div>
-            <div class="section__body" id="trigger__point">
+            <div class="section__body" id="work">
                 <div ref="showCasesRef" class="showcase" v-for="(showCase, index) in showCases" :key="index">
                     <div class="showcase__wrapper">
                         <img class="showcase__image" :src="showCase.image" alt="Project Image">
@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, Ref } from 'vue'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -58,7 +58,13 @@ interface ShowCase {
 }
 
 export default {
-    setup() {
+    props: {
+        workRef: {
+            type: Object as () => Ref<null | HTMLElement>,
+            required: true
+        }
+    },
+    setup(props) {
         const showCases = ref<ShowCase[]>([
             {
                 id: 1,
@@ -96,9 +102,9 @@ export default {
                 url: 'https://github.com/slekstut/todo-vue',
             }
         ]);
-
         const showCasesRef = ref<HTMLElement | null>(null)
         const showcaseTriangles = ref<HTMLElement | null>(null)
+        const workRef: Ref<null | HTMLElement> = ref(null)
 
         onMounted(() => {
             gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
@@ -139,12 +145,17 @@ export default {
                     },
                 })
             })
+            
+            if (workRef.value !== null) {
+                props.workRef.value = workRef.value;
+            }
         })
 
         return {
             showCases,
             showCasesRef,
             showcaseTriangles,
+            workRef
         }
     }
 
@@ -152,7 +163,8 @@ export default {
 </script>
 
 <style lang="scss">
- @import '@/assets/scss/main.scss';
+@import '@/assets/scss/main.scss';
+
 .section-showcase {
     margin-top: 512px;
     position: relative;
@@ -204,6 +216,7 @@ export default {
                 svg {
                     transition: all .3s ease-in-out;
                 }
+
                 &:hover {
                     svg {
                         path {

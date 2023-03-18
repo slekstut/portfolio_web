@@ -3,10 +3,9 @@
         <div class="header__wrapper container" ref="headerText">
             <h1 class="header__title">Empowering your vision with code</h1>
             <p class="header__subtitle">Building engaging and responsive user experiences as a front-end developer</p>
-            <CTABtn text="see work" @click="scrollToWork" />
+            <a href="#work" class="btn hover-text-effect" data-after="See work">See work</a>
         </div>
         <div class="bg-img">
-            <!-- <img src="@/assets/img/main_background.svg" alt="main_background.svg"> -->
             <svg width="1440" height="810" viewBox="0 0 1440 810" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1440 0H0V810H1440V0Z" fill="#1A1313" />
                 <mask id="mask0_79_178" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1440"
@@ -284,25 +283,26 @@
                         fill="#FFC107" fill-opacity="0.75" />
                 </g>
             </svg>
-
         </div>
     </section>
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, Ref } from 'vue'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import scrollTo from 'vue-scrollto'
 
 export default {
-    setup() {
+    props: {
+        workRef: {
+            type: Object as () => Ref<null | HTMLElement>,
+            required: true
+        }
+    },
+    setup(props) {
         const headerText = ref<HTMLElement | null>(null)
         const iconPlus = ref<HTMLElement | null>(null)
-        
-        const scrollToWork = () => {
-            scrollTo('#work', 500, { easing: 'linear' });
-        }
+            const workRef: Ref<null | HTMLElement> = ref(null)
 
         const rotateObject = () => {
             gsap.to(iconPlus.value, { duration: 1, rotation: '+=360', transformOrigin: 'center center', ease: 'linear', repeat: -1, overwrite: 'auto' });
@@ -313,8 +313,17 @@ export default {
         }
 
         const handleMouseOut = () => {
-      gsap.delayedCall(2.5, stopRotateObject);
-    }
+            gsap.delayedCall(2.5, stopRotateObject);
+        }
+
+        const scrollToWork = () => {
+            if (props.workRef.value !== null) {
+                window.scrollTo({
+                    top: props.workRef.offsetTop,
+                    behavior: 'smooth'
+                })
+            }
+        }
 
         onMounted(() => {
             gsap.from(headerText.value, {
@@ -323,16 +332,21 @@ export default {
                 x: -100,
                 ease: 'power2.out',
             })
+
+            if (workRef.value !== null) {
+        console.log('Work element:', workRef.value)
+      }
         })
 
         return {
             headerText,
-            scrollToWork,
             rotateObject,
             handleMouseOut,
             stopRotateObject,
             iconPlus,
-        };
+            workRef,
+            scrollToWork
+        }
     }
 }
 </script>
@@ -378,7 +392,8 @@ export default {
         font-size: 1rem;
         font-weight: 700;
         z-index: 1;
-
+        width: fit-content;
+        text-align: center;
 
         &:hover {
             svg {
@@ -388,10 +403,6 @@ export default {
                     fill: $color-black-500;
                 }
             }
-        }
-
-        span {
-            height: .875rem;
         }
     }
 

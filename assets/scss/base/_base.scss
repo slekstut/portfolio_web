@@ -1,47 +1,82 @@
 body {
-    background-color: $color-black-500;
-    color: $color-white-700;
-    font-size: $font-size;
-    line-height: 1.5;
-    font-family: $primary-font;
-    text-transform: uppercase;
+  background-color: $color-black-500;
+  color: $color-white-700;
+  font-size: $font-size;
+  line-height: 1.5;
+  font-family: $primary-font;
+  text-transform: uppercase;
 }
 
 a {
-    color: $color-white-700;
+  color: $color-white-700;
 }
 
 // hover text & button
 .hover-text-effect {
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-    transition: transform .5s; 
-    transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
-    display: block;
-    
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  transition: transform .5s;
+  transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+  display: block;
+
+  &::after {
+    content: attr(data-after);
+    display: inline-block;
+    transform: translateY(100%);
+    position: absolute;
+    left: 0;
+    transition: inherit;
+    width: 100%;
+    text-align: center;
+  }
+
+  >span {
+    display: inline-block;
+    transform: translateY(0%);
+    transition: inherit;
+  }
+
+  &:hover {
+    >span {
+      transform: translateY(-100%);
+    }
+
     &::after {
-      content: attr(data-after);
-      display: inline-block;
-      transform: translateY(100%);
-      position: absolute;
-      left: 0;
-      transition: inherit;
-    }
-    
-    > span {
-      display: inline-block;
       transform: translateY(0%);
-      transition: inherit;
     }
-    
-    &:hover {
-      > span {
-        transform: translateY(-100%);
-      }
-      &::after {
-        transform: translateY(0%);
+  }
+}
+
+.btn {
+  padding: .4rem 1.2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-yellow-700;
+  color: $color-white-700;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    background-color: $color-white-700;
+    color: $color-black-500;
+
+    svg {
+      fill: $color-black-500;
+
+      path {
+        fill: $color-black-500;
       }
     }
   }
-  
+
+  span {
+    text-align: center;
+  }
+}
