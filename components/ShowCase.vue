@@ -58,13 +58,7 @@ interface ShowCase {
 }
 
 export default {
-    props: {
-        workRef: {
-            type: Object as () => Ref<null | HTMLElement>,
-            required: true
-        }
-    },
-    setup(props) {
+    setup() {
         const showCases = ref<ShowCase[]>([
             {
                 id: 1,
@@ -104,7 +98,6 @@ export default {
         ]);
         const showCasesRef = ref<HTMLElement | null>(null)
         const showcaseTriangles = ref<HTMLElement | null>(null)
-        const workRef: Ref<null | HTMLElement> = ref(null)
 
         onMounted(() => {
             gsap.utils.toArray<HTMLElement>(".showcase").forEach((showcase, index) => {
@@ -145,17 +138,12 @@ export default {
                     },
                 })
             })
-            
-            if (workRef.value !== null) {
-                props.workRef.value = workRef.value;
-            }
         })
 
         return {
             showCases,
             showCasesRef,
             showcaseTriangles,
-            workRef
         }
     }
 

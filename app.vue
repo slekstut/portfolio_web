@@ -1,22 +1,19 @@
 <template>
   <div>
     <Nav />
-    <Header :workRref="workRef" />
+    <Header />
     <About />
-    <ShowCase :workRef="workRef" />
+    <ShowCase />
     <Contact />
     <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import { ref, Ref } from 'vue'
 export default {
   setup() {
-    const workRef: Ref<null | HTMLElement> = ref(null)
 
     return {
-      workRef
     }
   }
 }

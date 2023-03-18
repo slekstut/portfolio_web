@@ -293,16 +293,9 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export default {
-    props: {
-        workRef: {
-            type: Object as () => Ref<null | HTMLElement>,
-            required: true
-        }
-    },
-    setup(props) {
+    setup() {
         const headerText = ref<HTMLElement | null>(null)
         const iconPlus = ref<HTMLElement | null>(null)
-            const workRef: Ref<null | HTMLElement> = ref(null)
 
         const rotateObject = () => {
             gsap.to(iconPlus.value, { duration: 1, rotation: '+=360', transformOrigin: 'center center', ease: 'linear', repeat: -1, overwrite: 'auto' });
@@ -316,15 +309,6 @@ export default {
             gsap.delayedCall(2.5, stopRotateObject);
         }
 
-        const scrollToWork = () => {
-            if (props.workRef.value !== null) {
-                window.scrollTo({
-                    top: props.workRef.offsetTop,
-                    behavior: 'smooth'
-                })
-            }
-        }
-
         onMounted(() => {
             gsap.from(headerText.value, {
                 duration: 2,
@@ -333,9 +317,6 @@ export default {
                 ease: 'power2.out',
             })
 
-            if (workRef.value !== null) {
-        console.log('Work element:', workRef.value)
-      }
         })
 
         return {
@@ -344,8 +325,6 @@ export default {
             handleMouseOut,
             stopRotateObject,
             iconPlus,
-            workRef,
-            scrollToWork
         }
     }
 }
