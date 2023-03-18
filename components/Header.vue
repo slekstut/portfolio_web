@@ -386,13 +386,10 @@ export default {
     }
 
     .bg-img {
-        // max-width: 51.25rem;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        // margin-top: -10.25rem;
-        // margin-left: auto;
 
         img {
             height: auto;

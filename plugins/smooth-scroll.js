@@ -1,14 +1,15 @@
-// plugins/smooth-scroll.js
-
-export default function (context, inject) {
-    // Add smooth scrolling to all links with hash references
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+export default function ({ app }) {
+  if (process.client) {
+    const smoothScroll = (event) => {
+      event.preventDefault();
+      const target = document.querySelector(event.currentTarget.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', smoothScroll);
     });
   }
-  
+}
