@@ -285,10 +285,13 @@
             </svg>
         </div>
     </section>
+    <div class="zoom-effect-container">
+        <div class="zoom-effect" ref="zoomEffect"></div>
+    </div>
 </template>
 
 <script lang="ts">
-import { onMounted, ref, Ref } from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -296,6 +299,7 @@ export default {
     setup() {
         const headerText = ref<HTMLElement | null>(null)
         const iconPlus = ref<HTMLElement | null>(null)
+        const zoomEffect = ref(null);
 
         const rotateObject = () => {
             gsap.to(iconPlus.value, { duration: 1, rotation: '+=360', transformOrigin: 'center center', ease: 'linear', repeat: -1, overwrite: 'auto' });
@@ -309,6 +313,15 @@ export default {
             gsap.delayedCall(2.5, stopRotateObject);
         }
 
+        const handleMouseMove = (event) => {
+            gsap.to(zoomEffect.value, {
+                x: event.clientX - zoomEffect.value.clientWidth / 2,
+                y: event.clientY - zoomEffect.value.clientHeight / 2,
+                duration: 1.5,
+            });
+        };
+
+
         onMounted(() => {
             gsap.from(headerText.value, {
                 duration: 2,
@@ -316,7 +329,12 @@ export default {
                 x: -100,
                 ease: 'power2.out',
             })
+            window.addEventListener("mousemove", handleMouseMove);
 
+        })
+
+        onBeforeUnmount(() => {
+            window.removeEventListener("mousemove", handleMouseMove);
         })
 
         return {
@@ -325,6 +343,8 @@ export default {
             handleMouseOut,
             stopRotateObject,
             iconPlus,
+            handleMouseMove,
+            zoomEffect
         }
     }
 }
@@ -395,5 +415,25 @@ export default {
             height: auto;
         }
     }
+}
+
+.zoom-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.zoom-effect {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
 }
 </style>
