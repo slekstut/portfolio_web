@@ -24,16 +24,29 @@
           </a>
         </li>
       </ul>
+      <div class="mobile-menu" :class="{ 'active': isOpen }" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
+
 export default {
   setup() {
-   
-    return {
-    }
+    const isOpen = ref(false);
+
+    const toggleMenu = () => {
+      isOpen.value = !isOpen.value;
+      console.log(isOpen.value)
+
+    };
+
+    return { isOpen, toggleMenu };
   }
 };
 </script>
@@ -54,7 +67,7 @@ export default {
   right: 0;
   z-index: 2001;
 
-  &__logo a{
+  &__logo a {
     color: $color-yellow-700;
     font-size: 1rem;
     font-weight: 600;
@@ -70,6 +83,7 @@ export default {
 
     &:hover {
       cursor: pointer;
+
       span:last-child {
         opacity: 1;
         transform: translateX(0);
@@ -112,6 +126,82 @@ export default {
             transform: scaleX(1);
           }
         }
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: $sm) {
+  .nav {
+    position: relative;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+
+    &__links {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: flex;
+      position: relative;
+      width: 32px;
+      height: 24px;
+      cursor: pointer;
+
+      span {
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: $color-white-500;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: all 0.3s ease-in-out;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 10px;
+        }
+
+        &:nth-child(3) {
+          top: 20px;
+        }
+
+        &:nth-child(2) {
+          transform-origin: left center;
+        }
+
+        &:nth-child(3) {
+          transform-origin: right center;
+        }
+      }
+
+      &.active span {
+        opacity: 1;
+      }
+
+      &.active span:nth-child(1) {
+        top: 11px;
+        transform: rotate(45deg);
+      }
+
+      &.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      &.active span:nth-child(3) {
+        top: 0;
+        left: -5px;
+        transform: rotate(-45deg);
       }
     }
   }

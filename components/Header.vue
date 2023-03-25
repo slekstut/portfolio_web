@@ -410,10 +410,6 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-
-        img {
-            height: auto;
-        }
     }
 }
 
@@ -435,5 +431,39 @@ export default {
     border-radius: 50%;
     pointer-events: none;
     opacity: 1;
+}
+
+@media (max-width: $lg) {
+    .zoom-effect-container {
+        display: none;
+    }
+}
+
+@media (max-width: $sm) {
+    .header {
+        &__title {
+            padding-top: 3rem;
+            font-size: 3rem;
+            line-height: 101%;
+        }
+
+        &__subtitle {
+            font-size: 1rem;
+            line-height: 1.2rem;
+            max-width: 70%;
+        }
+
+        .btn {
+            font-size: 1rem;
+        }
+
+        .bg-img {
+           display: none;
+
+            svg {
+            
+            }
+        }
+    }
 }
 </style>

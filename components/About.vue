@@ -129,6 +129,8 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '@/assets/scss/main.scss';
+
 .section-about {
     margin-top: 412px;
     position: relative;
@@ -231,6 +233,12 @@ export default {
         top: 0;
         left: 0;
         right: 0;
+    }
+}
+
+@media (max-width: $sm) {
+    .skills {
+        display: none;
     }
 }
 </style>

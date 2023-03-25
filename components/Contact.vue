@@ -57,6 +57,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/main.scss';
+
 .section-contact {
     position: relative;
     margin-top: 212px;
@@ -95,6 +97,12 @@ export default {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+    }
+}
+
+@media (max-width: $sm) {
+    .contact {
+        display: none;
     }
 }
 </style>
