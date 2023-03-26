@@ -31,25 +31,33 @@
         <span></span>
         <span></span>
       </div>
-      <div class="menu-overlay"></div>
+      <div class="menu-overlay" @click.away="handleClickOutside"></div>
     </div>
   </nav>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 export default {
   setup() {
-    const isOpen = ref(false);
+    const isOpen = ref(false)
 
-    const toggleMenu = () => {
+    function toggleMenu() {
       isOpen.value = !isOpen.value;
-      console.log(isOpen.value)
+      if (isOpen.value) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+    }
+   
+    const handleClickOutside = (event) => {
+      isOpen.value = false;
+      document.body.classList.remove('no-scroll');
+    }
 
-    };
-
-    return { isOpen, toggleMenu };
+    return { isOpen, toggleMenu, handleClickOutside }
   }
 };
 </script>
@@ -156,16 +164,23 @@ export default {
       opacity: 0;
       background-color: $color-white-700;
       transition: all .3s ease-in-out;
+
+      .nav-list {
+        &__item {
+          font-weight: 600;
+        }
+      }
     }
 
     .menu-overlay {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 999;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.8);
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
@@ -176,7 +191,7 @@ export default {
       width: 32px;
       height: 24px;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 2000;
 
       span {
         display: block;
@@ -254,6 +269,7 @@ export default {
       }
 
       .menu-overlay {
+        display: block;
         opacity: 1;
       }
 

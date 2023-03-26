@@ -12,42 +12,46 @@ a {
   color: $color-white-700;
 }
 
-// hover text & button
-.hover-text-effect {
-  position: relative;
-  padding: 0;
-  overflow: hidden;
-  transition: transform .5s;
-  transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
-  display: block;
+@media (min-width: $sm) {
 
-  &::after {
-    content: attr(data-after);
-    display: inline-block;
-    transform: translateY(100%);
-    position: absolute;
-    left: 0;
-    transition: inherit;
-    width: 100%;
-    text-align: center;
-  }
-
-  >span {
-    display: inline-block;
-    transform: translateY(0%);
-    transition: inherit;
-  }
-
-  &:hover {
-    >span {
-      transform: translateY(-100%);
-    }
+  // hover text & button
+  .hover-text-effect {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    transition: transform .5s;
+    transition-timing-function: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+    display: block;
 
     &::after {
+      content: attr(data-after);
+      display: inline-block;
+      transform: translateY(100%);
+      position: absolute;
+      left: 0;
+      transition: inherit;
+      width: 100%;
+      text-align: center;
+    }
+
+    >span {
+      display: inline-block;
       transform: translateY(0%);
+      transition: inherit;
+    }
+
+    &:hover {
+      >span {
+        transform: translateY(-100%);
+      }
+
+      &::after {
+        transform: translateY(0%);
+      }
     }
   }
 }
+
 
 .btn {
   padding: .4rem 1.2rem;
@@ -80,4 +84,8 @@ a {
   span {
     text-align: center;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
