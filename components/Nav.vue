@@ -1,34 +1,37 @@
 <template>
   <nav>
-    <div class="container nav">
+    <div class="container nav" :class="{ 'active': isOpen }">
       <ul class="nav__logo">
         <a href="#header">
           <span>{ SL }</span>
           <span>Sarunas Lekstutis</span>
         </a>
       </ul>
-      <ul class="nav__links">
-        <li>
-          <a href="#about" class="hover-text-effect" data-after="about">
-            <span>about</span>
-          </a>
-        </li>
-        <li>
-          <a href="#work" class="hover-text-effect" data-after="work">
-            <span>work</span>
-          </a>
-        </li>
-        <li>
-          <a href="#contact" class="hover-text-effect" data-after="contact">
-            <span>contact</span>
-          </a>
-        </li>
-      </ul>
+      <div class="nav-links">
+        <ul class="nav-list">
+          <li class="nav-list__item">
+            <a href="#about" class="hover-text-effect" data-after="about" @click="toggleMenu">
+              <span>about</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#work" class="hover-text-effect" data-after="work" @click="toggleMenu">
+              <span>work</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a href="#contact" class="hover-text-effect" data-after="contact" @click="toggleMenu">
+              <span>contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div class="mobile-menu" :class="{ 'active': isOpen }" @click="toggleMenu">
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <div class="menu-overlay"></div>
     </div>
   </nav>
 </template>
@@ -141,8 +144,30 @@ export default {
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
 
-    &__links {
+    &-links {
       display: none;
+      width: 200px;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      opacity: 0;
+      background-color: $color-white-700;
+      transition: all .3s ease-in-out;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
 
     .mobile-menu {
@@ -151,6 +176,7 @@ export default {
       width: 32px;
       height: 24px;
       cursor: pointer;
+      z-index: 1000;
 
       span {
         display: block;
@@ -202,6 +228,39 @@ export default {
         top: 0;
         left: -5px;
         transform: rotate(-45deg);
+      }
+    }
+
+    &.active {
+      position: relative;
+
+      .nav-links {
+        display: block;
+        opacity: 1;
+      }
+
+      .nav-list {
+        padding: 96px 16px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 28px;
+
+        &__item {
+          a {
+            color: $color-black-500;
+          }
+        }
+      }
+
+      .menu-overlay {
+        opacity: 1;
+      }
+
+      .mobile-menu {
+        span {
+          background-color: $color-black-500;
+        }
       }
     }
   }
