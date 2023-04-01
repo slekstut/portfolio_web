@@ -82,18 +82,29 @@ export default {
         margin-bottom: 24px;
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 16px 0;
 
         .social {
-            flex: 1 100%;
+            flex: 1 50%;
+            order: 2;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         &__text {
             font-size: .85rem;
+            flex: 1 100%;
+            order: 1;
         }
 
         &__subtext {
             font-size: .85rem;
+            flex: 1 50%;
+            order: 3;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 }
