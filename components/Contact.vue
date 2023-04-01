@@ -35,7 +35,7 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 export default {
     setup() {
         const contactIcon = ref<HTMLElement | null>(null)
-        
+
         const animateDots = () => {
             gsap.timeline({ repeat: -1 })
                 .to(contactIcon.value.childNodes[3], { opacity: 0, duration: 0.2 })
@@ -101,8 +101,32 @@ export default {
 }
 
 @media (max-width: $sm) {
-    .contact {
-        display: none;
+    .section-contact {
+        margin-top: 124px;
+
+        .section__title {
+            margin: 0;
+        }
+
+        .contact {
+            &__title {
+                font-size: 1.3rem;
+                line-height: 121%;
+                margin: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            &__status {
+                font-size: 1rem;
+                line-height: 121%;
+            }
+        }
+
+        .section-contact__bg {
+            display: none;
+        }
     }
+
+
 }
 </style>

@@ -6,7 +6,7 @@
             <a href="#work" class="btn hover-text-effect" data-after="See work">See work</a>
         </div>
         <div class="bg-img">
-            <svg width="1440" height="810" viewBox="0 0 1440 810" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="1440" height="810" viewBox="0 0 1440 810" fill="none">
                 <path d="M1440 0H0V810H1440V0Z" fill="#1A1313" />
                 <mask id="mask0_79_178" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1440"
                     height="810">
@@ -441,10 +441,11 @@ export default {
 
 @media (max-width: $sm) {
     .header {
+        position: relative;
         &__title {
             padding-top: 3rem;
             font-size: 3rem;
-            line-height: 101%;
+            line-height: 121%;
         }
 
         &__subtitle {
@@ -458,10 +459,17 @@ export default {
         }
 
         .bg-img {
-           display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
 
             svg {
-            
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }

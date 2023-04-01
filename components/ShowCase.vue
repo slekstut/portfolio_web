@@ -244,4 +244,41 @@ export default {
         transform: translate(-20%, 20%);
     }
 }
+
+@media (max-width: $sm) {
+
+    .section-showcase {
+        margin-top: 124px;
+
+        .showcase__triangles {
+            left: 75%;
+            top: -20%;
+            transform: translate(-75%, 20%);
+        }
+
+        .showcase {
+            flex: 1 100%;
+
+            &__header {
+                left: 1rem;
+                top: 1rem;
+            }
+
+            &__title {
+                max-width: 100%;
+                font-size: 2rem;
+                line-height: 100%;
+            }
+
+            &__subtitle {
+                font-size: 1rem;
+            }
+
+            &__link {
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+    }
+}
 </style>

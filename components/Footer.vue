@@ -75,4 +75,26 @@ export default {
         }
     }
 }
+
+@media (max-width: $sm) {
+    .footer {
+        margin-top: 124px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+
+        .social {
+            flex: 1 100%;
+        }
+
+        &__text {
+            font-size: .85rem;
+        }
+
+        &__subtext {
+            font-size: .85rem;
+        }
+    }
+}
 </style>

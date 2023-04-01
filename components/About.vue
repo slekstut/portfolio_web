@@ -98,7 +98,7 @@ export default {
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: text.value,
-                        start: 'top 80%',
+                        start: 'top 90%',
                         scrub: true,
                     },
                 })
@@ -109,8 +109,8 @@ export default {
                 ease: "none",
                 scrollTrigger: {
                     trigger: triangleSvg.value,
-                    start: "bottom bottom", 
-                    end: `+=${window.innerHeight / 2}`, 
+                    start: "bottom bottom",
+                    end: `+=${window.innerHeight / 2}`,
                     scrub: 1,
                 }
             })
@@ -237,8 +237,46 @@ export default {
 }
 
 @media (max-width: $sm) {
-    .skills {
-        display: none;
+    .section-about {
+        margin-top: 124px;
+
+        .section__body {
+            flex-direction: column;
+        }
+
+        .figure-triangle {
+            svg {
+                max-width: 120px;
+            }
+        }
+
+        .about {
+            &__from {
+                font-size: 28px;
+                line-height: 32px;
+            }
+
+            &__role-title {
+                font-size: 28px;
+                line-height: 32px;
+            }
+
+            &__role-subtitle {
+                font-size: 16px;
+                line-height: 18px;
+                margin-left: 0;
+            }
+        }
+
+        .skills {
+            margin-top: 10rem;
+            margin-left: 0;
+        }
+
+        .skills.happy {
+            margin-top: 10rem;
+            margin-left: 0;
+        }
     }
 }
 </style>
