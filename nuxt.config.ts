@@ -1,4 +1,7 @@
 export default {
+  head: {
+    title: 'Sarunas Lekstutis Web Developer',
+  },
   css: [
     '@/assets/scss/main.scss'
   ],
